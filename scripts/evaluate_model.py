@@ -96,7 +96,7 @@ def main(args):
         filenames = os.listdir(args.model_path)
         filenames.sort()
         paths = [
-            os.path.join(args.model_path, file_) for file_ in filenames
+            os.path.join(args.model_path, file_) for file_ in filenames if os.path.isfile(os.path.join(args.model_path, file_)) and file_.endswith(".pt")
         ]
     else:
         paths = [args.model_path]
