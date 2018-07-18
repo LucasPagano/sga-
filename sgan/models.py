@@ -34,7 +34,7 @@ class Encoder(nn.Module):
     ):
         super(Encoder, self).__init__()
 
-        self.mlp_dim = 1024
+        self.mlp_dim = mlp_dim
         self.h_dim = h_dim
         self.embedding_dim = embedding_dim
         self.num_layers = num_layers
@@ -363,6 +363,10 @@ class TrajectoryGenerator(nn.Module):
 
         if pooling_type and pooling_type.lower() == 'none':
             pooling_type = None
+
+        #noise_dim is None, don't know why
+        if noise_dim is None:
+            noise_dim = (0, )
 
         self.obs_len = obs_len
         self.pred_len = pred_len
