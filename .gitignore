@@ -1,0 +1,9 @@
+#checkpoints
+*.pt
+
+#Pycharm
+.idea
+#virtual env
+env/
+#models
+models/
