@@ -145,7 +145,7 @@ class TrajectoryDataset(Dataset):
                     curr_loss_mask[_idx, pad_front:pad_end] = 1
                     num_peds_considered += 1
 
-                if num_peds_considered > min_ped:
+                if num_peds_considered >= min_ped:
                     non_linear_ped += _non_linear_ped
                     num_peds_in_seq.append(num_peds_considered)
                     loss_mask_list.append(curr_loss_mask[:num_peds_considered])
